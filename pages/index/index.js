@@ -1,5 +1,5 @@
 var appInstance = getApp();
-var API = appInstance.globalData.api;
+var request = appInstance.globalData.api.ajax;
 var wxCharts = require('../../utils/wxcharts-min.js');
 var ringChart = null;
 const {
@@ -33,7 +33,7 @@ Page(extend({}, Actionsheet, {
 	},
 	onLoad: function() {
 		var self = this;
-		API.ajax({
+		request({
 			url: 'index/getCount'
 		}, function(res) {
 			self.setData({
@@ -41,6 +41,16 @@ Page(extend({}, Actionsheet, {
 				outSum: res.data.out.sum
 			});
 			self.initRing(res.data);
+		});
+	},
+	viewOut: function() {
+		wx.navigateTo({
+			url: '../viewDetails/index?type=out'
+		});
+	},
+	viewIn: function() {
+		wx.navigateTo({
+			url: '../viewDetails/index?type=in'
 		});
 	},
 	toggleActionsheet: function() {
@@ -115,7 +125,6 @@ Page(extend({}, Actionsheet, {
 			var _item = {
 				name: _key,
 				data: parseInt(data.out.children[i][_key]),
-				stroke: false,
 				color: _negative[i]
 			};
 			_series.push(_item);
@@ -127,7 +136,6 @@ Page(extend({}, Actionsheet, {
 			var _item = {
 				name: _key,
 				data: parseInt(data.in.children[i][_key]),
-				stroke: false,
 				color: _positive[i]
 			};
 			_series.push(_item);
@@ -154,11 +162,11 @@ Page(extend({}, Actionsheet, {
 				fontSize: 15
 			},
 			series: _series,
-			disablePieStroke: true,
+			disablePieStroke: false,
 			width: windowWidth,
-			height: 250,
+			height: 280,
 			dataLabel: false,
-			legend: false,
+			legend: true,
 			background: '#f5f5f5',
 			padding: 0
 		});

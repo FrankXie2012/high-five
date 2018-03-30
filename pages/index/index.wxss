@@ -13,3 +13,6 @@
     right: 30rpx;
     color: #999;
 }
+canvas {
+    height: 280px;
+}

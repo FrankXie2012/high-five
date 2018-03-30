@@ -1,0 +1,34 @@
+<template name="tempCard">
+    <view class="zan-panel" wx:for="{{cards}}" wx:key="*this">
+        <view class="zan-card" data-id="{{item.id}}">
+          <view class="zan-card__thumb">
+            <image class="zan-card__img"
+              src="{{item.img}}"
+              mode="aspectFit"
+            ></image>
+          </view>
+          <view class="zan-card__detail">
+            <view class="zan-card__detail-row">
+              <view class="zan-card__right-col zan-font-bold zan-font-18">￥{{item.price}}</view>
+              <view class="zan-card__left-col zan-ellipsis">
+                 {{item.title}}
+              </view>
+            </view>
+
+            <view class="zan-card__detail-row zan-c-gray-darker">
+              <view class="zan-card__right-col">{{item.time}}</view>
+              <view class="zan-card__left-col">
+                  <view class="zan-tag zan-tag--primary zan-tag--plain">{{item.type}}</view>
+              </view>
+            </view>
+
+            <view class="zan-card__detail-row">
+              <view class="zan-card__right-col zan-font-22 card-icons">
+                  <view class="zan-icon zan-icon-edit zan-c-gray-darker"></view>
+                  <view class="zan-icon zan-icon-delete zan-c-red"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+    </view>
+</template>

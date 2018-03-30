@@ -1,0 +1,10 @@
+<import src="../templates/card.wxml"/>
+<view class="section">
+    <picker mode="date" value="{{date}}" fields="month" start="2018-01" bindchange="bindDateChange">
+        <view class="picker">
+            <button class="zan-btn zan-btn--large">{{date}}月 {{type === 'out' ? '支出' : '收入'}}详情</button>
+        </view>
+    </picker>
+</view>
+<canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+<template is="tempCard" data="{{cards}}"></template>

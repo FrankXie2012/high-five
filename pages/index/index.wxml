@@ -22,6 +22,13 @@
             <view class="zan-icon zan-icon-delete"></view>
             记录支出
         </button>
+
+        <navigator url="../dashboard/index">
+            <button class="zan-btn zan-btn--danger">
+                <view class="zan-icon zan-icon-delete"></view>
+                back
+            </button>
+        </navigator>
     </view>
     <template is="zan-actionsheet" data="{{ ...baseActionsheet }}"></template>
 </view>
