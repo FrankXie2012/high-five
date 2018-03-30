@@ -1,0 +1,15 @@
+/* pages/index/index.wxss */
+
+.main-panel {
+  padding: 50rpx 0;
+  text-align: center;
+}
+.divider-r {
+    border-right: 1rpx solid #ccc;
+}
+.index-setting {
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+    color: #999;
+}

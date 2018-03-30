@@ -1,0 +1,27 @@
+<!-- 首页 -->
+<import src="/utils/zanUI/actionsheet/index.wxml" />
+<view class='container'>
+    <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+    <view class="zan-icon zan-icon-setting zan-font-30 index-setting" bindtap="toggleActionsheet"></view>
+    <view class="zan-panel main-panel zan-row mt-30">
+        <view class='zan-col zan-col-12 divider-r'>
+            <text class='zan-font-24 zan-c-red zan-font-bold'>￥{{outSum}}</text>
+            <button class="zan-btn zan-btn--small zan-btn--danger mt-30" bindtap="viewOut">查看支出</button>
+        </view>
+        <view class='zan-col zan-col-12'>
+            <text class='zan-font-24 zan-c-green zan-font-bold'>￥{{inSum}}</text>
+            <button class="zan-btn zan-btn--small zan-btn--primary mt-30" bindtap="viewIn">查看收入</button>
+        </view>
+    </view>
+    <view class="zan-btns">
+        <button class="zan-btn zan-btn--primary">
+            <view class="zan-icon zan-icon-add-o"></view>
+            记录收入
+        </button>
+        <button class="zan-btn zan-btn--danger">
+            <view class="zan-icon zan-icon-delete"></view>
+            记录支出
+        </button>
+    </view>
+    <template is="zan-actionsheet" data="{{ ...baseActionsheet }}"></template>
+</view>
